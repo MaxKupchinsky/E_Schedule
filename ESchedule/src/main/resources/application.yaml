@@ -1,0 +1,24 @@
+server:
+  port: 5004
+security:
+  user:
+    name: user
+    password: 1
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=schedule
+    username: sa
+    password: 12345qwerty
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+
+my:
+  value:
+    from:
+      properties: MyValueFromProperties
