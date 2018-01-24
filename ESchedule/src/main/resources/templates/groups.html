@@ -4,11 +4,12 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Failed</title>
+    <title>Groups</title>
 </head>
 <body>
-    <h2>This login isn't available</h2>
-    <div><a href="/reg">Try again</a></div>
-    <div><a href="/">To main</a></div>
+<h1>Groups</h1>
+<ul th:each="group : ${groups}">
+    <li><a th:href="${'/groups/ ' + group.id}" th:text="${group.name}"></a></li>
+</ul>
 </body>
 </html>

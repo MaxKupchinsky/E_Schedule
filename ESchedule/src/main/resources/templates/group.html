@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Schedule</title>
+</head>
+<body>
+<h1 th:text="${group.name}"></h1>
+<h3>Schedule</h3>
+<div>
+    <table border="1">
+        <tr>
+            <th>Day </th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+        </tr>
+        <tr th:each ="sc : ${group.schedules}">
+            <td th:utext="${sc.day}">...</td>
+            <td th:utext="${sc.c1}">...</td>
+            <td th:utext="${sc.c2}">...</td>
+            <td th:utext="${sc.c3}">...</td>
+            <td th:utext="${sc.c4}">...</td>
+            <td th:utext="${sc.c5}">...</td>
+            <td th:utext="${sc.c6}">...</td>
+            <td th:utext="${sc.c7}">...</td>
+            <td th:utext="${sc.c8}">...</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

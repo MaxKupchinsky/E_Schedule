@@ -9,7 +9,7 @@
 <div>
     <h1> Universities </h1>
     <ul th:each ="uni : ${university}">
-        <li><a th:href="${'/univ/ ' + uni.id}" th:text="${uni.name}"></a></li>
+        <li><p th:href="${'/univ/ ' + uni.id}" th:text="${uni.name}"></p></li>
     </ul>
 </div>
 </body>

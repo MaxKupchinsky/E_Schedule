@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroupRepository extends CrudRepository<Group_,Integer>{
-    //Iterable<Group_> findByUniversityContainingOrFacultyContaining(String universityPath, String facultyPath);
+    Iterable<Group_> findByUniversityContainingOrFacultyContaining(String universityPath, String facultyPath);
 }

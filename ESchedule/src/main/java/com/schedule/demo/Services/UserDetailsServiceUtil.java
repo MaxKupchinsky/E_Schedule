@@ -37,7 +37,7 @@ public class UserDetailsServiceUtil implements org.springframework.security.core
 
             userRepository.save(newUser);
 
-            return "succreg";
+            return "index";
         }
         return "failreg";
 

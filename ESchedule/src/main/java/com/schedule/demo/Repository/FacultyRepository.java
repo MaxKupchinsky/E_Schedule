@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FacultyRepository extends CrudRepository<Faculty,Integer> {
+    Iterable<Faculty> findByNameContaining(String name);
 }

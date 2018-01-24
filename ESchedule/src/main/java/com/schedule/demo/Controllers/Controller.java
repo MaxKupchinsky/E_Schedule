@@ -1,9 +1,11 @@
 package com.schedule.demo.Controllers;
 
 import com.schedule.demo.Entities.Group_;
+import com.schedule.demo.Entities.Schedule;
 import com.schedule.demo.Entities.University;
 import com.schedule.demo.Repository.FacultyRepository;
 import com.schedule.demo.Repository.GroupRepository;
+import com.schedule.demo.Repository.ScheduleRepository;
 import com.schedule.demo.Repository.UniversityRepository;
 import com.schedule.demo.Services.Service1;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +19,28 @@ public class Controller {
     @Autowired
     Service1 service;
 
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    @Autowired
+    ScheduleRepository scheduleRepository;
+
+    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public ModelAndView index() {
 
         return new ModelAndView("index");
     }
 
+    @GetMapping("/test")
+    public Iterable<Schedule> test(){
+        return scheduleRepository.findAll();
+    }
+
     @GetMapping("/univ")
-    public String getUniversities(ModelMap model){
+    public String getUniversities(ModelMap model) {
         model.addAttribute("university", service.getUniversities());
         return "univ";
     }
 
-
-
     @GetMapping("/univ/{id}")
-    public University getUniversity(@PathVariable int id){
+    public University getUniversity(@PathVariable int id) {
         return service.getUniversity(id);
     }
 
@@ -40,11 +48,20 @@ public class Controller {
     public Iterable<University> searchPersons(@ModelAttribute(name = "q") String query) {
         return service.universitySearch(query);
     }
-    /*
-    @GetMapping("/group")
-    public Iterable<Group_> searchGroup(@ModelAttribute(name = "q") String query){
 
-        return service.groupSearch(query);
+    @GetMapping("/groups")
+    public String getGroups(ModelMap model){
+        model.addAttribute("groups", service.getGroups());
+        return "groups";
+
     }
-    */
+
+    @GetMapping("/groups/{id}")
+    public String getGroup(@PathVariable int id, ModelMap model){
+        model.addAttribute("group", service.getGroup(id));
+        return "group";
+    }
+
+
+
 }
